@@ -19,9 +19,9 @@ public boolean adicionarIngrediente(Ingrediente ingrediente){
     else{
         return false; 
     }
-}
+}   
     
-public Ingredientes consultarIngrediente(String nome){
+    public Ingredientes consultarIngrediente(String nome){
         for (int i = 0; i < index; i++) {
             if (vetIngredientes[i].getNome().equals(nome)){
                 return vetIngredientes[i];
@@ -30,7 +30,7 @@ public Ingredientes consultarIngrediente(String nome){
         return null;
     }
     
-public boolean removerIngrediente(String nomeIngrediente){
+    public boolean removerIngrediente(String nomeIngrediente){
     for(int i =0; i<index;i++){
         if(vetIngredientes[i].getNome().equalsIgnoreCase(nomeIngrediente)){
             for(int j = i; j<index-1;j++){
@@ -42,15 +42,8 @@ public boolean removerIngrediente(String nomeIngrediente){
         } 
     }     
         return false; 
- }   
-    public Ingredientes consultarIngrediente(String nome){
-        for (int i = 0; i < index; i++) {
-            if (vetIngredientes[i].getNome().equals(nome)){
-                return vetIngredientes[i];
-            }
-        }
-        return null;
-    }
+ }
+    
     public int buscarPosicao(String nome) {
         for (int i = 0; i < index; i++) {
             if (vetIngredientes[i].getNome().equals(nome)) {
