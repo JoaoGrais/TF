@@ -20,7 +20,16 @@ public boolean adicionarIngrediente(Ingrediente ingrediente){
         return false; 
     }
 }
-//ESPAÇO PRA ADICONAR A B  
+    
+public Ingredientes consultarIngrediente(String nome){
+        for (int i = 0; i < index; i++) {
+            if (vetIngredientes[i].getNome().equals(nome)){
+                return vetIngredientes[i];
+            }
+        }
+        return null;
+    }
+    
 public boolean removerIngrediente(String nomeIngrediente){
     for(int i =0; i<index;i++){
         if(vetIngredientes[i].getNome().equalsIgnoreCase(nomeIngrediente)){
@@ -30,10 +39,24 @@ public boolean removerIngrediente(String nomeIngrediente){
             index--; 
             vetIngredientes[index] = null;
             return true;
-
         } 
-    }
-//ESPAÇO PARA ADICIONAR O D     
+    }     
         return false; 
- }     
+ }   
+    public Ingredientes consultarIngrediente(String nome){
+        for (int i = 0; i < index; i++) {
+            if (vetIngredientes[i].getNome().equals(nome)){
+                return vetIngredientes[i];
+            }
+        }
+        return null;
+    }
+    public int buscarPosicao(String nome) {
+        for (int i = 0; i < index; i++) {
+            if (vetIngredientes[i].getNome().equals(nome)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
