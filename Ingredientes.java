@@ -9,15 +9,27 @@ public class Ingredientes {
         this.medida = medida;
     }
 
-    public void setNome(String nome) {this.nome = nome;}
-    public void setQuantidade(double quantidade) {this.quantidade = quantidade;}
-    public void setMedida(String medida) {this.medida = medida;}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setQuantidade(double quantidade) {
+        this.quantidade = quantidade;
+    }
+    public void setMedida(String medida) {
+        this.medida = medida;
+    }
 
-    public String getNome() {return nome;}
-    public double getQuantidade() {return quantidade;}
-    public String getMedida() {return medida;}
+    public String getNome() {
+        return nome;
+    }
+    public double getQuantidade() {
+        return quantidade;
+    }
+    public String getMedida() {
+        return medida;
+    }
 
     public String toString() {
-        return ("\n o nome do ingrediente � " + nome + "\n e a quantidade " + quantidade + "\n medida " + medida);
+        return ("\n o nome do ingrediente  " + nome + "\n e a quantidade " + quantidade + "\n medida " + medida);
     }
 }
