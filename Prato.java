@@ -1,26 +1,26 @@
-public class Prato{
-private String nome; 
-private double valor;
-private Ingrediente[] vetIngredientes;
-private int index; //inserções e remoções
+public class Prato {
+    String nomePrato;
+    double valor;
+    int index;
+    Ingredientes[] vetIngredientes;
 
-public Prato(String nome, double valor, int quantidadeIngrediente){
-    this.nome = nome;
-    this.valor = valor; 
-    this.vetIngredientes = new Ingrediente[quantidadeIngrediente]; //criei um vetor de ingredientes que comporta até x quantidade
-    this.index = 0; 
-}
-public boolean adicionarIngrediente(Ingrediente ingrediente){
-    if(index<vetIngredientes.length){
-        vetIngredientes[index]= ingrediente;
-        index++;
-        return true;
+    public Prato(String nomePrato, double valor, int quantidadeIngrediente){
+        this.nomePrato = nomePrato;
+        this.valor = valor;
+        this.vetIngredientes = new Ingredientes [quantidadeIngrediente];
+        index = 0;
     }
-    else{
-        return false; 
+
+    public boolean adicionarIngrediente(Ingredientes ingredientes){
+        if (index < vetIngredientes.length){
+            vetIngredientes[index] = ingredientes;
+            index++;
+            return true;
+        } else {
+            return false;
+        }
     }
-}   
-    
+
     public Ingredientes consultarIngrediente(String nome){
         for (int i = 0; i < index; i++) {
             if (vetIngredientes[i].getNome().equals(nome)){
@@ -29,21 +29,7 @@ public boolean adicionarIngrediente(Ingrediente ingrediente){
         }
         return null;
     }
-    
-    public boolean removerIngrediente(String nomeIngrediente){
-    for(int i =0; i<index;i++){
-        if(vetIngredientes[i].getNome().equalsIgnoreCase(nomeIngrediente)){
-            for(int j = i; j<index-1;j++){
-            vetIngredientes[j] = vetIngredientes[j+1];
-            }
-            index--; 
-            vetIngredientes[index] = null;
-            return true;
-        } 
-    }     
-        return false; 
- }
-    
+
     public int buscarPosicao(String nome) {
         for (int i = 0; i < index; i++) {
             if (vetIngredientes[i].getNome().equals(nome)) {
