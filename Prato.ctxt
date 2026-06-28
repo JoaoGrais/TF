@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Prato
+comment1.params=nomePrato\ valor\ quantidadeIngrediente
+comment1.target=Prato(java.lang.String,\ double,\ int)
+comment10.params=nome
+comment10.target=Ingredientes\ consultarIngrediente(java.lang.String)
+comment11.params=nome
+comment11.target=int\ buscarPosicao(java.lang.String)
+comment2.params=nomePrato
+comment2.target=void\ setNome(java.lang.String)
+comment3.params=valor
+comment3.target=void\ setValor(double)
+comment4.params=quantidadeIngrediente
+comment4.target=void\ setQuantidadeIngrediente(int)
+comment5.params=
+comment5.target=java.lang.String\ getNome()
+comment6.params=
+comment6.target=double\ getValor()
+comment7.params=
+comment7.target=Ingredientes[]\ getVetIngredientes()
+comment8.params=ingredientes
+comment8.target=boolean\ adicionarIngrediente(Ingredientes)
+comment9.params=nomeIngrediente
+comment9.target=boolean\ removerIngrediente(java.lang.String)
+numComments=12
