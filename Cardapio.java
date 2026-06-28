@@ -18,7 +18,7 @@ public class Cardapio{
     public boolean removerPrato(String nomePrato){
         for(int i =0; i<index; i++){
             if(vetPratos[i].getNome().equalsIgnoreCase(nomePrato)){
-                for(int j =i; j< index - 1; j++){ //come�ar em i pois � onde o ingrediente a ser removido est�
+                for(int j =i; j< index - 1; j++){ //comecar em i pois e onde o ingrediente a ser removido esta
                     vetPratos[j] = vetPratos[j + 1]; //tirou o ingrediente anterior
 
                 }
@@ -32,7 +32,7 @@ public class Cardapio{
     
     public Prato buscarPratoPorNome(String nomePrato){
         for (int i = 0; i < index; i++) {
-            if (vetPratos[i].getNome().equals(nomePrato)){
+            if (vetPratos[i].getNome().equalsIgnoreCase(nomePrato)){
                 return vetPratos[i];
             }
         } return null;
@@ -40,13 +40,30 @@ public class Cardapio{
 
     public int buscarPosicao(Prato prato){
         for (int i = 0; i < index; i++) {
-            if (vetPratos[i].getNome().equals(prato.getNome())){
+            if (vetPratos[i].getNome().equalsIgnoreCase(prato.getNome())){
                 return i;
             }
         }
         return -1;
     }
-
+    
+    public Prato[] buscarPratoIngrediente(String nomeIngrediente){
+        int tamanho = 0; 
+        for(int i =0; i<index;i++){
+            if(vetPratos[i].consultarIngrediente(nomeIngrediente)!= null){ //se tiver um ingrediente com esse nome , ou seja, não estiver vazio, então tem um prato com esse ingrediente
+                tamanho++; 
+            }
+        }
+        Prato[] pratosIngrediente = new Prato[tamanho]; 
+        int j =0; //pois i e j não lidaram sempre com o mesmo objeto no vetor; 
+        for(int i =0; i<index;i++){
+            if(vetPratos[i].consultarIngrediente(nomeIngrediente)!= null){ //se tiver um ingrediente com esse nome , ou seja, não estiver vazio, então tem um prato com esse ingrediente
+                pratosIngrediente[j] = vetPratos[i];  
+                j++; 
+            }
+        }
+        return pratosIngrediente;
+    }
     public double buscarValorCardapio(){
         double somatorio = 0;
         for (int i = 0; i < index; i++) {
@@ -55,23 +72,32 @@ public class Cardapio{
         return somatorio;
     }
 
-        public Prato buscarPratoEconomico(){
-            Prato achou = null;
-            double menor = Double.MAX_VALUE;
-            for (int i = 0; i < index; i++) {
-                if (vetPratos[i].getValor() < menor){
-                    achou = vetPratos[i];
-                    menor = vetPratos[i].getValor();
-                }
-            }
-            return achou;
+    public Prato buscarPratoEconomico(){
+        Prato achou = null;
+        double menor = Double.MAX_VALUE;
+        for (int i = 0; i < index; i++) {
+           if (vetPratos[i].getValor() < menor){
+              achou = vetPratos[i];
+              menor = vetPratos[i].getValor();
+           }
         }
+        return achou;
+    }
 
     public void mostrarPratos(){
-        for (int i = 0; i < index; i++) {
-            vetPratos[i].getNome();
-            vetPratos[i].getValor();
-            vetPratos[i].getVetIngredientes();
+        if(index==0){
+        System.out.println("Não há pratos no cardápio!"); //caso não existam pratos ainda
+        }else{
+          for (int i = 0; i < index; i++) {
+            System.out.println(vetPratos[i].getNome() + "| R$" + vetPratos[i].getValor()); 
+            Ingredientes[] vet = vetPratos[i].getVetIngredientes(); 
+            for(int j =0; j< vet.length; j++){
+                if(vet[j] != null){
+                    System.out.println(" - " + vet[j].getNome()+ "|" + vet[j].getQuantidade() + "|" + vet[j].getMedida()+"|"); 
+                    //pois cada prato pode ter mais de um ingrediente, então devemos percorrer o vetor de ingredientes desse prato
+                }
+            }
+          }
         }
     }
-}
+}       
