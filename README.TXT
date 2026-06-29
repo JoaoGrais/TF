@@ -12,7 +12,7 @@ README.TXT — Trabalho Final — Fundamentos de Programação — Turma 15
 
 2. LINK PARA O VÍDEO NO YOUTUBE
 
-(a ser preenchido após a gravação)
+https://youtu.be/yJ9yf3_DStg
 
 ================================================================================
 
